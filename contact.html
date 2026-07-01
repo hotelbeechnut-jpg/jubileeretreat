@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Jubilee Retreat &amp; Conference Centre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --charcoal: #1a1a2e;
+      --gold: #c9a84c;
+      --gold-light: #dbbf6e;
+      --gold-dark: #a88830;
+      --cream: #f5f0e8;
+      --cream-dark: #e8e0d0;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --gray-light: #9ca3af;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+      --shadow-lg: 0 10px 40px rgba(0,0,0,0.18);
+      --radius: 12px;
+      --radius-lg: 20px;
+      --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-weight: 400; color: var(--cream); background: var(--charcoal); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4 { font-family: var(--font-heading); }
+    a { color: var(--gold); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--gold-light); }
+    img { max-width: 100%; display: block; }
+
+    /* Header */
+    #site-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(26, 26, 46, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201, 168, 76, 0.2); transition: background var(--transition); }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .logo { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: var(--gold); letter-spacing: 0.5px; }
+    .logo-accent { font-weight: 400; font-size: 0.75rem; color: var(--cream); display: block; line-height: 1; letter-spacing: 1.2px; text-transform: uppercase; }
+    .nav-toggle { display: none; background: none; border: none; color: var(--cream); font-size: 1.6rem; cursor: pointer; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--cream); letter-spacing: 0.5px; position: relative; padding-bottom: 4px; transition: color var(--transition); }
+    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--gold); transition: width var(--transition); }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--gold); }
+    .nav-links a:hover::after, .nav-links a:focus-visible::after { width: 100%; }
+
+    .contact-hero { position: relative; height: 340px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+    .contact-hero::before { content: ''; position: absolute; inset: 0; background: url('images/front_view_3.jpg') center center / cover no-repeat; transform: scale(1.05); animation: heroZoom 20s ease-in-out infinite alternate; }
+    @keyframes heroZoom { 0% { transform: scale(1.05); } 100% { transform: scale(1.15); } }
+    .contact-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(26,26,46,0.75) 0%, rgba(26,26,46,0.45) 100%); z-index: 1; }
+    .hero-content { position: relative; z-index: 2; animation: heroFadeIn 1.2s ease-out; }
+    @keyframes heroFadeIn { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+    .hero-content h1 { font-family: var(--font-heading); font-size: clamp(2.4rem, 5vw, 3.5rem); font-weight: 700; color: var(--white); margin-bottom: 16px; }
+    .hero-accent { width: 80px; height: 3px; background: var(--gold); margin: 0 auto; border-radius: 2px; }
+
+    .section { padding: 72px 24px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+
+    .contact-info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto; }
+    .info-card { background: rgba(245, 240, 232, 0.06); border: 1px solid rgba(201, 168, 76, 0.2); border-radius: var(--radius-lg); padding: 36px 24px; text-align: center; transition: transform var(--transition), border-color var(--transition); }
+    .info-card:hover { transform: translateY(-4px); border-color: var(--gold); }
+    .info-icon { width: 52px; height: 52px; margin: 0 auto 16px; border: 2px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: var(--gold); }
+    .info-card h3 { font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 8px; color: var(--gold); }
+    .info-card p, .info-card a { font-size: 0.95rem; color: rgba(245, 240, 232, 0.85); }
+
+    .form-map-row { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; max-width: 1200px; margin: 0 auto; }
+
+    .form-card { background: var(--cream); border-radius: var(--radius-lg); padding: 44px 36px; color: var(--charcoal); }
+    .form-card h2 { color: var(--charcoal); font-size: 1.6rem; margin-bottom: 4px; }
+    .form-card .form-subtitle { color: var(--gray); margin-bottom: 24px; font-size: 0.95rem; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--charcoal); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .form-group input, .form-group textarea { width: 100%; padding: 12px 14px; border: 1.5px solid #ccc; border-radius: var(--radius); font-family: var(--font-body); font-size: 0.95rem; background: var(--white); color: var(--charcoal); transition: border-color var(--transition), box-shadow var(--transition); outline: none; }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.2); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .btn-submit { background: var(--gold); color: var(--charcoal); border: none; padding: 14px 36px; border-radius: 50px; font-family: var(--font-body); font-size: 1rem; font-weight: 600; cursor: pointer; transition: all var(--transition); width: 100%; letter-spacing: 0.5px; }
+    .btn-submit:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201, 168, 76, 0.35); }
+
+    .map-wrap { border-radius: var(--radius); overflow: hidden; border: 2px solid var(--gold); }
+    .map-wrap iframe { width: 100%; height: 400px; display: block; border: none; }
+
+    .hours-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1200px; margin: 40px auto 0; }
+    .hours-card { background: rgba(245, 240, 232, 0.06); border: 1px solid rgba(201, 168, 76, 0.2); border-radius: var(--radius-lg); padding: 28px 20px; text-align: center; transition: transform var(--transition), border-color var(--transition); }
+    .hours-card:hover { transform: translateY(-4px); border-color: var(--gold); }
+    .hours-card .day { font-family: var(--font-heading); font-size: 1.1rem; color: var(--gold); margin-bottom: 6px; }
+    .hours-card .time { font-size: 0.95rem; color: rgba(245, 240, 232, 0.85); }
+
+    .section-narrow-top { padding-top: 0; }
+
+    .social-section { text-align: center; }
+    .social-section h2 { font-family: var(--font-heading); color: var(--gold); margin-bottom: 20px; font-size: 1.8rem; }
+    .social-icons-row { display: flex; justify-content: center; gap: 20px; }
+    .social-btn { width: 52px; height: 52px; border: 2px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 0.95rem; font-weight: 600; transition: all var(--transition); cursor: default; }
+    .social-btn:hover { background: var(--gold); color: var(--charcoal); transform: scale(1.08); }
+
+    /* Footer */
+    #site-footer { background: var(--charcoal); color: var(--cream); padding: 60px 24px 0; margin-top: 48px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+    .footer-col h3 { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 600; color: var(--gold); margin-bottom: 16px; }
+    .footer-col p, .footer-col a { color: rgba(245, 240, 232, 0.75); font-size: 0.9rem; line-height: 1.8; }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 8px; }
+    .footer-col ul li a { color: rgba(245, 240, 232, 0.75); transition: color var(--transition); }
+    .footer-col ul li a:hover { color: var(--gold); }
+    .footer-col .social-icons { display: flex; gap: 12px; margin-top: 16px; }
+    .footer-col .social-icon { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid rgba(245, 240, 232, 0.3); border-radius: 50%; font-size: 0.8rem; font-weight: 600; color: var(--cream); cursor: default; transition: all var(--transition); }
+    .footer-col .social-icon:hover { background: var(--gold); color: var(--charcoal); border-color: var(--gold); }
+    .footer-bottom { text-align: center; padding: 24px 0; margin-top: 48px; border-top: 1px solid rgba(245, 240, 232, 0.1); }
+    .footer-bottom p { font-size: 0.8rem; color: rgba(245, 240, 232, 0.5); }
+
+    /* Toast */
+    .toast { position: fixed; bottom: 30px; right: 30px; background: var(--charcoal); border: 1px solid var(--gold); color: var(--cream); padding: 20px 28px; border-radius: var(--radius); box-shadow: var(--shadow-lg); z-index: 999; transform: translateY(120px); opacity: 0; transition: transform 0.4s ease, opacity 0.4s ease; pointer-events: none; }
+    .toast.show { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    .toast h4 { color: var(--gold); margin-bottom: 4px; }
+    .toast p { font-size: 0.9rem; opacity: 0.8; }
+    .toast-close { background: none; border: none; color: var(--gold); font-size: 1.2rem; cursor: pointer; position: absolute; top: 8px; right: 12px; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .nav-toggle { display: block; }
+      .nav-links { position: absolute; top: 72px; left: 0; width: 100%; flex-direction: column; background: var(--charcoal); padding: 20px 24px; gap: 16px; display: none; }
+      .nav-links.open { display: flex; }
+      .contact-info-grid { grid-template-columns: 1fr; }
+      .form-map-row { grid-template-columns: 1fr; }
+      .hours-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; text-align: center; }
+      .footer-col .social-icons { justify-content: center; }
+      .hero-content h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="header-inner">
+    <a href="home.html" class="logo">Jubilee Retreat<span class="logo-accent">&amp; Conference Centre</span></a>
+    <nav id="main-nav">
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="room.html">Rooms</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="contact-hero">
+  <div class="hero-content">
+    <h1>Get in Touch</h1>
+    <div class="hero-accent"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="contact-info-grid">
+    <div class="info-card">
+      <div class="info-icon">&#9906;</div>
+      <h3>Address</h3>
+      <p>5 Enerhen Rd, Effurun, Wado City 330102, Delta</p>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">&#9742;</div>
+      <h3>Phone</h3>
+      <p><a href="tel:+2348103150133">0810 315 0133</a></p>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">&#9993;</div>
+      <h3>Email</h3>
+      <p><a href="mailto:info@jubileeretreat.com">info@jubileeretreat.com</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-narrow-top">
+  <div class="form-map-row">
+    <div class="form-card">
+      <h2>Send us a Message</h2>
+      <p class="form-subtitle">We'd love to hear from you.</p>
+      <form id="contact-form" novalidate>
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Send Message</button>
+      </form>
+    </div>
+    <div>
+      <div class="map-wrap">
+        <iframe src="https://maps.google.com/maps?q=5.5473078684582395,5.782021836735339&z=15&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="hours-grid">
+        <div class="hours-card">
+          <div class="day">Mon – Fri</div>
+          <div class="time">8:00 AM – 10:00 PM</div>
+        </div>
+        <div class="hours-card">
+          <div class="day">Saturday</div>
+          <div class="time">9:00 AM – 11:00 PM</div>
+        </div>
+        <div class="hours-card">
+          <div class="day">Sunday</div>
+          <div class="time">10:00 AM – 8:00 PM</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section social-section">
+  <h2>Follow Us</h2>
+  <div class="social-icons-row">
+    <span class="social-btn" aria-label="Facebook">FB</span>
+    <span class="social-btn" aria-label="Instagram">IG</span>
+    <span class="social-btn" aria-label="Twitter">X</span>
+  </div>
+</section>
+
+<footer id="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h3>Jubilee Retreat &amp; Conference Centre</h3>
+      <p>5 Enerhen Rd, Effurun, Wado City 330102, Delta</p>
+      <p>Phone: <a href="tel:+2348103150133">0810 315 0133</a></p>
+    </div>
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="room.html">Rooms</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Find Us</h3>
+      <a href="https://maps.google.com/?q=5.5473078684582395,5.782021836735339" target="_blank" rel="noopener noreferrer">View on Google Maps</a>
+      <div class="social-icons">
+        <span class="social-icon" aria-label="Facebook">FB</span>
+        <span class="social-icon" aria-label="Instagram">IG</span>
+        <span class="social-icon" aria-label="Twitter">X</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Jubilee Retreat &amp; Conference Centre. All rights reserved.</p>
+  </div>
+</footer>
+
+<div class="toast" id="success-toast">
+  <button class="toast-close" id="toast-close">&times;</button>
+  <h4>Message Sent!</h4>
+  <p>Thank you for reaching out. We'll get back to you soon.</p>
+</div>
+
+<script>
+(function() {
+  const form = document.getElementById('contact-form');
+  const toast = document.getElementById('success-toast');
+  const toastClose = document.getElementById('toast-close');
+
+  function showToast() {
+    toast.classList.add('show');
+  }
+
+  function hideToast() {
+    toast.classList.remove('show');
+  }
+
+  toastClose.addEventListener('click', hideToast);
+  toast.addEventListener('click', function(e) {
+    if (e.target === toast) hideToast();
+  });
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const subject = document.getElementById('subject');
+    const message = document.getElementById('message');
+
+    let valid = true;
+
+    [name, email, subject, message].forEach(function(field) {
+      field.style.borderColor = '';
+    });
+
+    if (!name.value.trim()) {
+      name.style.borderColor = '#e74c3c';
+      valid = false;
+    }
+    if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+      email.style.borderColor = '#e74c3c';
+      valid = false;
+    }
+    if (!subject.value.trim()) {
+      subject.style.borderColor = '#e74c3c';
+      valid = false;
+    }
+    if (!message.value.trim()) {
+      message.style.borderColor = '#e74c3c';
+      valid = false;
+    }
+
+    if (valid) {
+      form.reset();
+      showToast();
+    }
+  });
+
+  const toggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (toggle && navLinks) {
+    toggle.addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

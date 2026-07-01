@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jubilee Retreat and Conference Centre – Rooms</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --charcoal: #1a1a2e;
+      --gold: #c9a84c;
+      --gold-light: #dbbf6e;
+      --gold-dark: #a88830;
+      --cream: #f5f0e8;
+      --cream-dark: #e8e0d0;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --gray-light: #9ca3af;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+      --shadow-lg: 0 10px 40px rgba(0,0,0,0.18);
+      --radius: 12px;
+      --radius-lg: 20px;
+      --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      color: var(--charcoal);
+      background: var(--cream);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ========== HEADER ========== */
+    #site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(26, 26, 46, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+      transition: background var(--transition);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.5px;
+    }
+
+    .logo-accent {
+      font-weight: 400;
+      font-size: 0.75rem;
+      color: var(--cream);
+      display: block;
+      line-height: 1;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--cream);
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--cream);
+      letter-spacing: 0.5px;
+      position: relative;
+      padding-bottom: 4px;
+      transition: color var(--transition);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--gold);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      width: 100%;
+    }
+
+    /* ========== PAGE HERO ========== */
+    .page-hero {
+      position: relative;
+      min-height: 55vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .page-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('images/executive.jpg') center center / cover no-repeat;
+      transform: scale(1.05);
+      animation: heroZoom 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroZoom {
+      0%   { transform: scale(1.05); }
+      100% { transform: scale(1.15); }
+    }
+
+    .page-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(26,26,46,0.8) 0%, rgba(26,26,46,0.5) 100%);
+    }
+
+    .page-hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 24px;
+      animation: heroFadeIn 1.2s ease-out;
+    }
+
+    @keyframes heroFadeIn {
+      0%   { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .page-hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.8rem, 6vw, 4rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .page-hero-sub {
+      font-family: var(--font-heading);
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      font-style: italic;
+      color: var(--gold);
+      margin-bottom: 20px;
+      opacity: 0.95;
+    }
+
+    .gold-divider {
+      width: 80px;
+      height: 3px;
+      background: var(--gold);
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+
+    /* ========== SECTION SHARED ========== */
+    .section {
+      padding: 100px 24px;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      color: var(--gray);
+      max-width: 640px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* ========== FILTER BAR ========== */
+    .filter-section {
+      background: var(--white);
+      padding: 32px 24px;
+    }
+
+    .filter-bar {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 10px 28px;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: 2px solid var(--gold);
+      border-radius: 50px;
+      background: transparent;
+      color: var(--charcoal);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--gold);
+      color: var(--charcoal);
+    }
+
+    /* ========== ROOM CARDS ========== */
+    .rooms-section {
+      background: var(--cream);
+    }
+
+    .room-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+
+    .room-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+      animation: cardReveal 0.7s ease-out both;
+    }
+
+    .room-card:nth-child(1) { animation-delay: 0s; }
+    .room-card:nth-child(2) { animation-delay: 0.15s; }
+    .room-card:nth-child(3) { animation-delay: 0.3s; }
+
+    @keyframes cardReveal {
+      0%   { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .room-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .room-card-img {
+      height: 240px;
+      overflow: hidden;
+    }
+
+    .room-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .room-card:hover .room-card-img img {
+      transform: scale(1.08);
+    }
+
+    .room-card-body {
+      padding: 28px 24px;
+    }
+
+    .room-card-body h3 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .room-price {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .room-price small {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--gray);
+    }
+
+    .room-desc {
+      color: var(--gray);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .room-amenities {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .room-amenities li {
+      font-size: 0.88rem;
+      color: var(--charcoal);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .room-amenities li::before {
+      content: '✓';
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .room-guests {
+      font-size: 0.85rem;
+      color: var(--gray-light);
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 36px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all var(--transition);
+      border: none;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--charcoal);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(201, 168, 76, 0.35);
+    }
+
+    /* ========== COMPARISON TABLE ========== */
+    .compare-section {
+      background: var(--white);
+    }
+
+    .compare-table {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .compare-header {
+      background: var(--charcoal);
+      color: var(--white);
+      padding: 20px 16px;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .compare-header:first-child {
+      text-align: left;
+      padding-left: 24px;
+    }
+
+    .compare-header:last-child {
+      border-right: none;
+    }
+
+    .compare-header.gold {
+      color: var(--gold);
+    }
+
+    .compare-cell {
+      padding: 16px;
+      text-align: center;
+      font-size: 0.92rem;
+      color: var(--charcoal);
+      border-right: 1px solid rgba(0,0,0,0.05);
+      border-top: 1px solid rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .compare-cell:first-child {
+      text-align: left;
+      padding-left: 24px;
+      font-weight: 600;
+      color: var(--gray);
+      justify-content: flex-start;
+    }
+
+    .compare-cell:last-child {
+      border-right: none;
+    }
+
+    .compare-cell.check {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .compare-cell.night {
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    .compare-cell.price-val {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--gold-dark);
+    }
+
+    .compare-row:nth-child(even) .compare-cell {
+      background: rgba(245, 240, 232, 0.4);
+    }
+
+    .compare-row:nth-child(odd) .compare-cell {
+      background: var(--white);
+    }
+
+    /* ========== OFFER BANNER ========== */
+    .offer-banner {
+      background: linear-gradient(135deg, var(--charcoal) 0%, #2a2a4e 100%);
+      padding: 80px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .offer-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(201, 168, 76, 0.08) 0%, transparent 70%);
+    }
+
+    .offer-banner .section-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .offer-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 16px;
+    }
+
+    .offer-banner .section-title {
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .offer-banner .section-desc {
+      color: rgba(245, 240, 232, 0.85);
+      max-width: 520px;
+      margin: 0 auto 32px;
+    }
+
+    .offer-banner .btn-primary {
+      background: var(--gold);
+      color: var(--charcoal);
+      border: 2px solid var(--gold);
+    }
+
+    .offer-banner .btn-primary:hover,
+    .offer-banner .btn-primary:focus-visible {
+      background: transparent;
+      color: var(--gold);
+      box-shadow: none;
+    }
+
+    /* ========== FAQ SECTION ========== */
+    .faq-section {
+      background: var(--cream);
+    }
+
+    .faq-list {
+      max-width: 800px;
+      margin: 48px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: box-shadow var(--transition);
+    }
+
+    .faq-item:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: none;
+      border: none;
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      cursor: pointer;
+      text-align: left;
+      transition: color var(--transition);
+    }
+
+    .faq-question:hover {
+      color: var(--gold-dark);
+    }
+
+    .faq-icon {
+      font-size: 1.2rem;
+      color: var(--gold);
+      transition: transform var(--transition);
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-answer p {
+      padding: 0 24px 20px;
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ========== CTA BANNER ========== */
+    .cta-banner {
+      background: var(--gold);
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .cta-banner .section-title {
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+
+    .cta-banner .section-desc {
+      color: rgba(26, 26, 46, 0.75);
+      max-width: 520px;
+      margin: 0 auto 32px;
+    }
+
+    .cta-banner .btn-primary {
+      background: var(--charcoal);
+      color: var(--white);
+      border: 2px solid var(--charcoal);
+    }
+
+    .cta-banner .btn-primary:hover,
+    .cta-banner .btn-primary:focus-visible {
+      background: transparent;
+      color: var(--charcoal);
+      box-shadow: none;
+    }
+
+    /* ========== FOOTER ========== */
+    #site-footer {
+      background: var(--charcoal);
+      color: var(--cream);
+      padding: 60px 24px 0;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .footer-col h3 {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .footer-col p,
+    .footer-col a {
+      color: rgba(245, 240, 232, 0.75);
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+
+    .footer-col ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-col ul li a {
+      color: rgba(245, 240, 232, 0.75);
+      transition: color var(--transition);
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--gold);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(245, 240, 232, 0.3);
+      border-radius: 50%;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--cream);
+      cursor: default;
+      transition: all var(--transition);
+    }
+
+    .social-icon:hover {
+      background: var(--gold);
+      color: var(--charcoal);
+      border-color: var(--gold);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 24px 0;
+      margin-top: 48px;
+      border-top: 1px solid rgba(245, 240, 232, 0.1);
+    }
+
+    .footer-bottom p {
+      font-size: 0.8rem;
+      color: rgba(245, 240, 232, 0.5);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 900px) {
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: var(--charcoal);
+        padding: 20px 24px;
+        gap: 16px;
+        display: none;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .room-cards {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .compare-table {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .compare-header,
+      .compare-cell {
+        border-right: none;
+      }
+
+      .compare-header:first-child,
+      .compare-cell:first-child {
+        background: var(--charcoal);
+        color: var(--gold);
+        justify-content: center;
+        text-align: center;
+        padding-left: 16px;
+      }
+
+      .compare-cell:first-child {
+        background: rgba(26, 26, 46, 0.05);
+        color: var(--charcoal);
+        font-weight: 700;
+      }
+
+      .compare-row {
+        display: contents;
+      }
+
+      .compare-table {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .compare-table > * {
+        display: contents;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .social-icons {
+        justify-content: center;
+      }
+
+      .section {
+        padding: 60px 20px;
+      }
+    }
+
+    @media (min-width: 901px) and (max-width: 1199px) {
+      .room-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- === SHARED HEADER === -->
+<header id="site-header">
+  <div class="header-inner">
+    <a href="home.html" class="logo">Jubilee Retreat<span class="logo-accent">&amp; Conference Centre</span></a>
+    <nav id="main-nav">
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="room.html">Rooms</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- === HERO === -->
+<section class="page-hero" aria-label="Rooms hero">
+  <div class="page-hero-bg" role="img" aria-label="Executive suite interior at Jubilee Retreat"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <h1 class="page-hero-title">Our Rooms &amp; Suites</h1>
+    <p class="page-hero-sub">Luxury Meets Comfort</p>
+    <div class="gold-divider"></div>
+  </div>
+</section>
+
+<!-- === FILTER BAR === -->
+<section class="filter-section" aria-label="Room filter">
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="standard">Standard</button>
+    <button class="filter-btn" data-filter="deluxe">Deluxe</button>
+    <button class="filter-btn" data-filter="executive">Executive</button>
+    <button class="filter-btn" data-filter="suite">Suite</button>
+  </div>
+</section>
+
+<!-- === ROOM CARDS === -->
+<section class="section rooms-section" aria-label="Room listings">
+  <div class="section-inner">
+    <span class="section-label">Accommodation</span>
+    <h2 class="section-title">Choose Your Perfect Stay</h2>
+    <p class="section-desc">
+      Each room is thoughtfully designed to provide you with the utmost comfort and elegance.
+    </p>
+    <div class="room-cards">
+      <!-- Standard -->
+      <article class="room-card" data-room="standard">
+        <div class="room-card-img">
+          <img src="images/standard.jpg" alt="Standard room with queen bed and modern amenities" loading="lazy">
+        </div>
+        <div class="room-card-body">
+          <h3>Standard Room</h3>
+          <p class="room-price">&#8358;45,000 <small>/ night</small></p>
+          <p class="room-desc">Comfortable and functional, our Standard Rooms offer a relaxing stay with modern essentials.</p>
+          <ul class="room-amenities">
+            <li>Queen bed</li>
+            <li>Air conditioning</li>
+            <li>Free Wi-Fi</li>
+            <li>Work desk</li>
+            <li>En-suite bathroom</li>
+            <li>Flat-screen TV</li>
+          </ul>
+          <p class="room-guests">Max guests: 2</p>
+          <a href="booking.html" class="btn btn-primary">Book Now</a>
+        </div>
+      </article>
+      <!-- Deluxe -->
+      <article class="room-card" data-room="deluxe">
+        <div class="room-card-img">
+          <img src="images/deluxe.jpg" alt="Deluxe room with king bed and premium finishes" loading="lazy">
+        </div>
+        <div class="room-card-body">
+          <h3>Deluxe Room</h3>
+          <p class="room-price">&#8358;75,000 <small>/ night</small></p>
+          <p class="room-desc">Elevated comfort with premium finishes and thoughtful touches for a memorable stay.</p>
+          <ul class="room-amenities">
+            <li>King bed</li>
+            <li>Premium bedding</li>
+            <li>Rain shower</li>
+            <li>Mini bar</li>
+            <li>City view</li>
+            <li>Free Wi-Fi</li>
+            <li>Work desk</li>
+            <li>55" Smart TV</li>
+          </ul>
+          <p class="room-guests">Max guests: 3</p>
+          <a href="booking.html" class="btn btn-primary">Book Now</a>
+        </div>
+      </article>
+      <!-- Executive Suite -->
+      <article class="room-card" data-room="executive">
+        <div class="room-card-img">
+          <img src="images/executive.jpg" alt="Executive suite with living area and jacuzzi" loading="lazy">
+        </div>
+        <div class="room-card-body">
+          <h3>Executive Suite</h3>
+          <p class="room-price">&#8358;120,000 <small>/ night</small></p>
+          <p class="room-desc">Our finest accommodation — a spacious suite designed for discerning travellers and VIP guests.</p>
+          <ul class="room-amenities">
+            <li>King bed</li>
+            <li>Living room area</li>
+            <li>Jacuzzi</li>
+            <li>Private balcony</li>
+            <li>Skyline view</li>
+            <li>Complimentary breakfast</li>
+            <li>Butler service</li>
+            <li>Free Wi-Fi</li>
+            <li>65" Smart TV</li>
+          </ul>
+          <p class="room-guests">Max guests: 4</p>
+          <a href="booking.html" class="btn btn-primary">Book Now</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- === COMPARISON TABLE === -->
+<section class="section compare-section" aria-label="Room comparison">
+  <div class="section-inner">
+    <span class="section-label">Compare</span>
+    <h2 class="section-title">Find the Room That Fits You</h2>
+    <p class="section-desc">
+      See how our rooms stack up side by side to make the best choice for your stay.
+    </p>
+    <div class="compare-table">
+      <div class="compare-header">Feature</div>
+      <div class="compare-header gold">Standard</div>
+      <div class="compare-header gold">Deluxe</div>
+      <div class="compare-header gold">Executive</div>
+
+      <div class="compare-row">
+        <div class="compare-cell">Bed Type</div>
+        <div class="compare-cell">Queen</div>
+        <div class="compare-cell">King</div>
+        <div class="compare-cell">King</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">Max Guests</div>
+        <div class="compare-cell">2</div>
+        <div class="compare-cell">3</div>
+        <div class="compare-cell">4</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">Wi-Fi</div>
+        <div class="compare-cell check">&#10003;</div>
+        <div class="compare-cell check">&#10003;</div>
+        <div class="compare-cell check">&#10003;</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">TV</div>
+        <div class="compare-cell">Flat-screen</div>
+        <div class="compare-cell">55" Smart TV</div>
+        <div class="compare-cell">65" Smart TV</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell">Price</div>
+        <div class="compare-cell price-val">&#8358;45,000</div>
+        <div class="compare-cell price-val">&#8358;75,000</div>
+        <div class="compare-cell price-val">&#8358;120,000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === SPECIAL OFFER BANNER === -->
+<section class="offer-banner" aria-label="Special offer">
+  <div class="section-inner">
+    <span class="offer-badge">Limited Time Offer</span>
+    <h2 class="section-title">Stay 3 Nights, Get 1 Free</h2>
+    <p class="section-desc">
+      Book three consecutive nights and enjoy an extra night on us. Experience the luxury of Jubilee Retreat for longer.
+    </p>
+    <a href="booking.html" class="btn btn-primary">Claim This Offer</a>
+  </div>
+</section>
+
+<!-- === FAQ === -->
+<section class="section faq-section" aria-label="Frequently asked questions">
+  <div class="section-inner">
+    <span class="section-label">FAQ</span>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <p class="section-desc">
+      Everything you need to know about booking your stay at Jubilee Retreat.
+    </p>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <button class="faq-question" aria-expanded="true">
+          How do I make a reservation?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>You can book directly through our website by visiting the Booking page, or call us at 0810 315 0133. We recommend booking in advance to secure your preferred room type and dates.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What are the check-in and check-out times?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Check-in is from 2:00 PM and check-out is by 12:00 PM noon. Early check-in and late check-out may be arranged upon request, subject to availability.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What amenities are included in the room rates?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>All rooms include complimentary Wi-Fi, air conditioning, flat-screen TV, and en-suite bathroom. Deluxe and Executive rooms feature additional premium amenities such as mini bar, rain shower, and jacuzzi.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Is there a cancellation policy?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, cancellations made 48 hours or more before check-in are fully refundable. Late cancellations or no-shows may incur a one-night charge. Please refer to our full policy during booking.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === CTA BANNER === -->
+<section class="cta-banner" aria-label="Call to action">
+  <div class="section-inner">
+    <h2 class="section-title">Ready to Book Your Stay?</h2>
+    <p class="section-desc">Experience the perfect blend of comfort, elegance, and world-class hospitality at Jubilee Retreat.</p>
+    <a href="booking.html" class="btn btn-primary">Book Now</a>
+  </div>
+</section>
+
+<!-- === SHARED FOOTER === -->
+<footer id="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h3>Jubilee Retreat &amp; Conference Centre</h3>
+      <p>5 Enerhen Rd, Effurun, Wado City 330102, Delta</p>
+      <p>Phone: <a href="tel:+2348103150133">0810 315 0133</a></p>
+    </div>
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="room.html">Rooms</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Find Us</h3>
+      <a href="https://maps.google.com/?q=5.5473078684582395,5.782021836735339" target="_blank" rel="noopener noreferrer">View on Google Maps</a>
+      <div class="social-icons">
+        <span class="social-icon" aria-label="Facebook">FB</span>
+        <span class="social-icon" aria-label="Instagram">IG</span>
+        <span class="social-icon" aria-label="Twitter">X</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Jubilee Retreat &amp; Conference Centre. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var toggle = document.querySelector('.nav-toggle');
+    var navLinks = document.querySelector('.nav-links');
+    if (toggle && navLinks) {
+      toggle.addEventListener('click', function() {
+        navLinks.classList.toggle('open');
+      });
+    }
+
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    var roomCards = document.querySelectorAll('.room-card');
+    if (filterBtns.length && roomCards.length) {
+      filterBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          filterBtns.forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          var filter = btn.getAttribute('data-filter');
+          roomCards.forEach(function(card) {
+            if (filter === 'all' || card.getAttribute('data-room') === filter || (filter === 'suite' && card.getAttribute('data-room') === 'executive')) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    }
+
+    var faqItems = document.querySelectorAll('.faq-item');
+    if (faqItems.length) {
+      faqItems.forEach(function(item) {
+        var question = item.querySelector('.faq-question');
+        if (question) {
+          question.addEventListener('click', function() {
+            var isOpen = item.classList.contains('open');
+            faqItems.forEach(function(i) { i.classList.remove('open'); });
+            if (!isOpen) {
+              item.classList.add('open');
+            }
+          });
+        }
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>

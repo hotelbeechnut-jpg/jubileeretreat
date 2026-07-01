@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jubilee Retreat and Conference Centre – Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --charcoal: #1a1a2e;
+      --gold: #c9a84c;
+      --gold-light: #dbbf6e;
+      --gold-dark: #a88830;
+      --cream: #f5f0e8;
+      --cream-dark: #e8e0d0;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --gray-light: #9ca3af;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+      --shadow-lg: 0 10px 40px rgba(0,0,0,0.18);
+      --radius: 12px;
+      --radius-lg: 20px;
+      --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      color: var(--charcoal);
+      background: var(--cream);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ========== HEADER ========== */
+    #site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(26, 26, 46, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+      transition: background var(--transition);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.5px;
+    }
+
+    .logo-accent {
+      font-weight: 400;
+      font-size: 0.75rem;
+      color: var(--cream);
+      display: block;
+      line-height: 1;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--cream);
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--cream);
+      letter-spacing: 0.5px;
+      position: relative;
+      padding-bottom: 4px;
+      transition: color var(--transition);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--gold);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      width: 100%;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('images/front_view_1.jpg') center center / cover no-repeat;
+      transform: scale(1.05);
+      animation: heroZoom 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroZoom {
+      0%   { transform: scale(1.05); }
+      100% { transform: scale(1.15); }
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(26,26,46,0.75) 0%, rgba(26,26,46,0.45) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 820px;
+      padding: 0 24px;
+      animation: heroFadeIn 1.2s ease-out;
+    }
+
+    @keyframes heroFadeIn {
+      0%   { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 7vw, 4.5rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero-title .gold {
+      color: var(--gold);
+    }
+
+    .hero-tagline {
+      font-family: var(--font-heading);
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      font-style: italic;
+      color: var(--cream);
+      margin-bottom: 36px;
+      opacity: 0.9;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 36px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all var(--transition);
+      border: none;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--charcoal);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(201, 168, 76, 0.35);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: var(--white);
+      color: var(--charcoal);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(255,255,255,0.15);
+    }
+
+    /* ========== SECTION SHARED ========== */
+    .section {
+      padding: 100px 24px;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      color: var(--gray);
+      max-width: 640px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* ========== WELCOME (BENTO) ========== */
+    .welcome {
+      background: var(--cream);
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+      margin-top: 48px;
+    }
+
+    .bento-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .bento-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .bento-image-card {
+      min-height: 400px;
+      position: relative;
+    }
+
+    .bento-image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+    }
+
+    .bento-text-card {
+      padding: 48px 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .bento-text-card .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+    }
+
+    .welcome-text {
+      color: var(--gray);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .welcome-signoff {
+      font-family: var(--font-heading);
+      font-style: italic;
+      color: var(--gold-dark);
+      font-size: 1.1rem;
+    }
+
+    /* ========== ROOM PREVIEW ========== */
+    .room-preview {
+      background: var(--white);
+    }
+
+    .room-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+
+    .room-card {
+      background: var(--cream);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+      animation: cardReveal 0.7s ease-out both;
+    }
+
+    .room-card:nth-child(1) { animation-delay: 0s; }
+    .room-card:nth-child(2) { animation-delay: 0.15s; }
+    .room-card:nth-child(3) { animation-delay: 0.3s; }
+
+    @keyframes cardReveal {
+      0%   { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .room-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .room-card-img {
+      height: 240px;
+      overflow: hidden;
+    }
+
+    .room-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .room-card:hover .room-card-img img {
+      transform: scale(1.08);
+    }
+
+    .room-card-body {
+      padding: 28px 24px;
+    }
+
+    .room-card-body h3 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+
+    .room-card-body p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .room-link {
+      font-weight: 600;
+      color: var(--gold-dark);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap var(--transition);
+    }
+
+    .room-link:hover,
+    .room-link:focus-visible {
+      gap: 12px;
+      color: var(--gold);
+    }
+
+    /* ========== AMENITIES ========== */
+    .amenities {
+      background: var(--charcoal);
+    }
+
+    .amenities .section-label {
+      color: var(--gold);
+    }
+
+    .amenities .section-title {
+      color: var(--white);
+    }
+
+    .amenities .section-desc {
+      color: var(--gray-light);
+    }
+
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+
+    .amenity-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      min-height: 320px;
+      box-shadow: var(--shadow-md);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .amenity-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .amenity-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      transition: transform 0.6s ease;
+    }
+
+    .amenity-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .amenity-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,26,46,0.85) 0%, rgba(26,26,46,0.1) 60%);
+      z-index: 1;
+    }
+
+    .amenity-card-content {
+      position: relative;
+      z-index: 2;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 100%;
+    }
+
+    .amenity-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 50px;
+      margin-bottom: 12px;
+      align-self: flex-start;
+    }
+
+    .amenity-card-content h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .amenity-card-content p {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+      margin-top: 6px;
+    }
+
+    /* ========== TESTIMONIAL MARQUEE ========== */
+    .testimonials {
+      background: var(--cream);
+      overflow: hidden;
+    }
+
+    .testimonial-marquee-wrapper {
+      position: relative;
+      margin-top: 48px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .testimonial-track {
+      display: flex;
+      gap: 32px;
+      width: max-content;
+      animation: marqueeScroll 30s linear infinite;
+    }
+
+    .testimonial-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marqueeScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .testimonial-card {
+      flex-shrink: 0;
+      width: 360px;
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--gold);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--charcoal);
+      font-size: 0.9rem;
+    }
+
+    .testimonial-author span {
+      font-weight: 400;
+      color: var(--gray-light);
+    }
+
+    /* ========== CTA BANNER ========== */
+    .cta-banner {
+      background: var(--gold);
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .cta-banner .section-title {
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+
+    .cta-banner .section-desc {
+      color: rgba(26, 26, 46, 0.75);
+      max-width: 520px;
+      margin: 0 auto 32px;
+    }
+
+    .cta-banner .btn-primary {
+      background: var(--charcoal);
+      color: var(--white);
+      border: 2px solid var(--charcoal);
+    }
+
+    .cta-banner .btn-primary:hover,
+    .cta-banner .btn-primary:focus-visible {
+      background: transparent;
+      color: var(--charcoal);
+      box-shadow: none;
+    }
+
+    /* ========== FOOTER ========== */
+    #site-footer {
+      background: var(--charcoal);
+      color: var(--cream);
+      padding: 60px 24px 0;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .footer-col h3 {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .footer-col p,
+    .footer-col a {
+      color: rgba(245, 240, 232, 0.75);
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+
+    .footer-col ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-col ul li a {
+      color: rgba(245, 240, 232, 0.75);
+      transition: color var(--transition);
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--gold);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(245, 240, 232, 0.3);
+      border-radius: 50%;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--cream);
+      cursor: default;
+      transition: all var(--transition);
+    }
+
+    .social-icon:hover {
+      background: var(--gold);
+      color: var(--charcoal);
+      border-color: var(--gold);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 24px 0;
+      margin-top: 48px;
+      border-top: 1px solid rgba(245, 240, 232, 0.1);
+    }
+
+    .footer-bottom p {
+      font-size: 0.8rem;
+      color: rgba(245, 240, 232, 0.5);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 900px) {
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: var(--charcoal);
+        padding: 20px 24px;
+        gap: 16px;
+        display: none;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bento-image-card {
+        min-height: 300px;
+      }
+
+      .bento-text-card {
+        padding: 32px 24px;
+      }
+
+      .room-cards {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .amenities-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .social-icons {
+        justify-content: center;
+      }
+
+      .section {
+        padding: 60px 20px;
+      }
+    }
+
+    @media (min-width: 901px) and (max-width: 1199px) {
+      .room-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .amenities-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- === SHARED HEADER === -->
+<header id="site-header">
+  <div class="header-inner">
+    <a href="home.html" class="logo">Jubilee Retreat<span class="logo-accent">&amp; Conference Centre</span></a>
+    <nav id="main-nav">
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="room.html">Rooms</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- === HERO === -->
+<section class="hero" aria-label="Hero banner">
+  <div class="hero-bg" role="img" aria-label="Jubilee Retreat front view"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-subtitle">Welcome to</p>
+    <h1 class="hero-title">Jubilee Retreat<br><span class="gold">&amp; Conference Centre</span></h1>
+    <p class="hero-tagline">Where Elegance Meets Tranquility</p>
+    <div class="hero-actions">
+      <a href="booking.html" class="btn btn-primary">Book Your Stay</a>
+      <a href="room.html" class="btn btn-secondary">Explore Rooms</a>
+    </div>
+  </div>
+</section>
+
+<!-- === WELCOME === -->
+<section class="section welcome" aria-label="Welcome">
+  <div class="section-inner">
+    <div class="bento-grid">
+      <div class="bento-card bento-image-card">
+        <img src="images/front_view_2.jpg" alt="Jubilee Retreat entrance and facade" loading="lazy">
+      </div>
+      <div class="bento-card bento-text-card">
+        <span class="section-label">Welcome</span>
+        <h2 class="section-title">A Haven of Comfort &amp; Elegance</h2>
+        <p class="welcome-text">
+          Nestled in the heart of Effurun, Jubilee Retreat and Conference Centre offers a
+          harmonious blend of modern luxury and warm hospitality. Whether you're here for
+          business or leisure, our beautifully appointed spaces and attentive service ensure
+          every moment is memorable.
+        </p>
+        <p class="welcome-text">
+          From intimate getaways to grand conferences, we provide the perfect setting
+          for every occasion. Discover a place where every detail is crafted with care.
+        </p>
+        <p class="welcome-signoff">— Your home away from home.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === ROOM PREVIEW === -->
+<section class="section room-preview" aria-label="Room preview">
+  <div class="section-inner">
+    <span class="section-label">Accommodation</span>
+    <h2 class="section-title">Our Rooms &amp; Suites</h2>
+    <p class="section-desc">
+      Choose from three thoughtfully designed room categories, each crafted for your comfort.
+    </p>
+    <div class="room-cards">
+      <article class="room-card">
+        <div class="room-card-img">
+          <img src="images/standard.jpg" alt="Standard room with comfortable bedding" loading="lazy">
+        </div>
+        <div class="room-card-body">
+          <h3>Standard Room</h3>
+          <p>Cozy and well-appointed, our Standard Rooms offer everything you need for a restful stay — plush bedding, en-suite bathroom, and modern amenities.</p>
+          <a href="room.html" class="room-link">View Details &rarr;</a>
+        </div>
+      </article>
+      <article class="room-card">
+        <div class="room-card-img">
+          <img src="images/deluxe.jpg" alt="Deluxe room with premium furnishings" loading="lazy">
+        </div>
+        <div class="room-card-body">
+          <h3>Deluxe Room</h3>
+          <p>Step into refined comfort with our Deluxe Rooms — featuring upgraded furnishings, spacious layouts, and premium touches for an elevated experience.</p>
+          <a href="room.html" class="room-link">View Details &rarr;</a>
+        </div>
+      </article>
+      <article class="room-card">
+        <div class="room-card-img">
+          <img src="images/executive.jpg" alt="Executive suite with elegant interior" loading="lazy">
+        </div>
+        <div class="room-card-body">
+          <h3>Executive Suite</h3>
+          <p>Our most luxurious offering — a sprawling suite with a separate living area, VIP amenities, and exquisite décor for the discerning traveller.</p>
+          <a href="room.html" class="room-link">View Details &rarr;</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- === AMENITIES === -->
+<section class="section amenities" aria-label="Amenities">
+  <div class="section-inner">
+    <span class="section-label">Amenities</span>
+    <h2 class="section-title">World-Class Facilities</h2>
+    <p class="section-desc">
+      From a sparkling pool to exquisite dining and versatile event spaces — every amenity awaits.
+    </p>
+    <div class="amenities-grid">
+      <div class="amenity-card">
+        <img src="images/pool_1.jpg" alt="Swimming pool at Jubilee Retreat" loading="lazy">
+        <div class="amenity-card-overlay"></div>
+        <div class="amenity-card-content">
+          <span class="amenity-badge">Relax</span>
+          <h3>Swimming Pool</h3>
+          <p>Take a refreshing dip in our crystal-clear pool surrounded by lush greenery.</p>
+        </div>
+      </div>
+      <div class="amenity-card">
+        <img src="images/restaurant_1.jpg" alt="Restaurant and dining area" loading="lazy">
+        <div class="amenity-card-overlay"></div>
+        <div class="amenity-card-content">
+          <span class="amenity-badge">Dine</span>
+          <h3>Fine Dining</h3>
+          <p>Savour exquisite local and international cuisine prepared by our award-winning chefs.</p>
+        </div>
+      </div>
+      <div class="amenity-card">
+        <img src="images/interior_1.jpg" alt="Conference and event hall interior" loading="lazy">
+        <div class="amenity-card-overlay"></div>
+        <div class="amenity-card-content">
+          <span class="amenity-badge">Celebrate</span>
+          <h3>Events &amp; Conferences</h3>
+          <p>Host memorable gatherings in our versatile, state-of-the-art event spaces.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === TESTIMONIAL MARQUEE === -->
+<section class="section testimonials" aria-label="Testimonials">
+  <div class="section-inner">
+    <span class="section-label">Testimonials</span>
+    <h2 class="section-title">What Our Guests Say</h2>
+    <p class="section-desc">
+      Hear from those who have experienced the warmth of Jubilee Retreat.
+    </p>
+  </div>
+  <div class="testimonial-marquee-wrapper">
+    <div class="testimonial-track">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"An absolutely stunning venue. The staff went above and beyond to make our conference a success. Highly recommended!"</p>
+        <p class="testimonial-author">Dr. Adewale O. <span>– Business Conference</span></p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"The Executive Suite was pure luxury. The attention to detail and the warm hospitality made our anniversary truly special."</p>
+        <p class="testimonial-author">Chioma &amp; Michael <span>– Anniversary Getaway</span></p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Perfect venue for our wedding reception. The banquet hall was beautifully decorated and the catering was exceptional."</p>
+        <p class="testimonial-author">Folake O. <span>– Wedding Reception</span></p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★☆</div>
+        <p class="testimonial-text">"I have stayed at many hotels in the Delta region, but Jubilee Retreat stands out for its serene environment and impeccable service."</p>
+        <p class="testimonial-author">Emeka N. <span>– Business Traveller</span></p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"The pool area is gorgeous, and the rooms are spotless. A hidden gem in Effurun. I will definitely be returning."</p>
+        <p class="testimonial-author">Sarah K. <span>– Weekend Retreat</span></p>
+      </div>
+      <!-- Duplicate for seamless loop -->
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"An absolutely stunning venue. The staff went above and beyond to make our conference a success. Highly recommended!"</p>
+        <p class="testimonial-author">Dr. Adewale O. <span>– Business Conference</span></p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"The Executive Suite was pure luxury. The attention to detail and the warm hospitality made our anniversary truly special."</p>
+        <p class="testimonial-author">Chioma &amp; Michael <span>– Anniversary Getaway</span></p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Perfect venue for our wedding reception. The banquet hall was beautifully decorated and the catering was exceptional."</p>
+        <p class="testimonial-author">Folake O. <span>– Wedding Reception</span></p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★☆</div>
+        <p class="testimonial-text">"I have stayed at many hotels in the Delta region, but Jubilee Retreat stands out for its serene environment and impeccable service."</p>
+        <p class="testimonial-author">Emeka N. <span>– Business Traveller</span></p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"The pool area is gorgeous, and the rooms are spotless. A hidden gem in Effurun. I will definitely be returning."</p>
+        <p class="testimonial-author">Sarah K. <span>– Weekend Retreat</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === CTA BANNER === -->
+<section class="cta-banner" aria-label="Call to action">
+  <div class="section-inner">
+    <h2 class="section-title">Ready to Experience Jubilee?</h2>
+    <p class="section-desc">Book your stay today and discover the perfect blend of comfort, elegance, and world-class hospitality.</p>
+    <a href="booking.html" class="btn btn-primary">Book Now</a>
+  </div>
+</section>
+
+<!-- === SHARED FOOTER === -->
+<footer id="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h3>Jubilee Retreat &amp; Conference Centre</h3>
+      <p>5 Enerhen Rd, Effurun, Wado City 330102, Delta</p>
+      <p>Phone: <a href="tel:+2348103150133">0810 315 0133</a></p>
+    </div>
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="room.html">Rooms</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Find Us</h3>
+      <a href="https://maps.google.com/?q=5.5473078684582395,5.782021836735339" target="_blank" rel="noopener noreferrer">View on Google Maps</a>
+      <div class="social-icons">
+        <span class="social-icon" aria-label="Facebook">FB</span>
+        <span class="social-icon" aria-label="Instagram">IG</span>
+        <span class="social-icon" aria-label="Twitter">X</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Jubilee Retreat &amp; Conference Centre. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var toggle = document.querySelector('.nav-toggle');
+    var navLinks = document.querySelector('.nav-links');
+    if (toggle && navLinks) {
+      toggle.addEventListener('click', function() {
+        navLinks.classList.toggle('open');
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jubilee Retreat and Conference Centre – About</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --charcoal: #1a1a2e;
+      --gold: #c9a84c;
+      --gold-light: #dbbf6e;
+      --gold-dark: #a88830;
+      --cream: #f5f0e8;
+      --cream-dark: #e8e0d0;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --gray-light: #9ca3af;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+      --shadow-lg: 0 10px 40px rgba(0,0,0,0.18);
+      --radius: 12px;
+      --radius-lg: 20px;
+      --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      color: var(--charcoal);
+      background: var(--cream);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ========== HEADER ========== */
+    #site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(26, 26, 46, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+      transition: background var(--transition);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.5px;
+    }
+
+    .logo-accent {
+      font-weight: 400;
+      font-size: 0.75rem;
+      color: var(--cream);
+      display: block;
+      line-height: 1;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--cream);
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--cream);
+      letter-spacing: 0.5px;
+      position: relative;
+      padding-bottom: 4px;
+      transition: color var(--transition);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--gold);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      width: 100%;
+    }
+
+    /* ========== PAGE HERO (smaller) ========== */
+    .page-hero {
+      position: relative;
+      min-height: 55vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .page-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('images/front_view_3.jpg') center center / cover no-repeat;
+      transform: scale(1.05);
+      animation: heroZoom 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroZoom {
+      0%   { transform: scale(1.05); }
+      100% { transform: scale(1.15); }
+    }
+
+    .page-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(26,26,46,0.8) 0%, rgba(26,26,46,0.5) 100%);
+    }
+
+    .page-hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 24px;
+      animation: heroFadeIn 1.2s ease-out;
+    }
+
+    @keyframes heroFadeIn {
+      0%   { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .page-hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.8rem, 6vw, 4rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .gold-divider {
+      width: 80px;
+      height: 3px;
+      background: var(--gold);
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+
+    /* ========== SECTION SHARED ========== */
+    .section {
+      padding: 100px 24px;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      color: var(--gray);
+      max-width: 640px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* ========== OUR STORY ========== */
+    .story-section {
+      background: var(--cream);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      margin-top: 48px;
+    }
+
+    .story-image {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .story-image img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .story-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .story-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px solid var(--gold);
+      border-radius: var(--radius-lg);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .story-image:hover::after {
+      opacity: 1;
+    }
+
+    .story-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .story-content .section-title {
+      margin-bottom: 0;
+    }
+
+    .story-text {
+      color: var(--gray);
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .story-signoff {
+      font-family: var(--font-heading);
+      font-style: italic;
+      color: var(--gold-dark);
+      font-size: 1.1rem;
+      border-left: 3px solid var(--gold);
+      padding-left: 16px;
+      margin-top: 8px;
+    }
+
+    /* ========== MISSION & VALUES ========== */
+    .mission-section {
+      background: var(--charcoal);
+    }
+
+    .mission-section .section-title {
+      color: var(--white);
+    }
+
+    .mission-section .section-desc {
+      color: var(--gray-light);
+    }
+
+    .mission-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+
+    .mission-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      text-align: center;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      animation: cardReveal 0.7s ease-out both;
+    }
+
+    .mission-card:nth-child(1) { animation-delay: 0s; }
+    .mission-card:nth-child(2) { animation-delay: 0.15s; }
+    .mission-card:nth-child(3) { animation-delay: 0.3s; }
+
+    @keyframes cardReveal {
+      0%   { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .mission-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(201, 168, 76, 0.12);
+      border-color: var(--gold);
+    }
+
+    .mission-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(201, 168, 76, 0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.6rem;
+    }
+
+    .mission-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .mission-card p {
+      color: rgba(245, 240, 232, 0.7);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ========== THE VENUE (BENTO) ========== */
+    .venue-section {
+      background: var(--white);
+    }
+
+    .venue-bento {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .venue-item {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      min-height: 300px;
+      box-shadow: var(--shadow-md);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .venue-item:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .venue-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      transition: transform 0.6s ease;
+    }
+
+    .venue-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .venue-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,26,46,0.85) 0%, rgba(26,26,46,0.2) 60%);
+      z-index: 1;
+    }
+
+    .venue-item-content {
+      position: relative;
+      z-index: 2;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 100%;
+    }
+
+    .venue-item-content h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .venue-item-content p {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      max-width: 400px;
+    }
+
+    .venue-item-tall {
+      grid-row: span 2;
+      min-height: 624px;
+    }
+
+    .venue-item-wide {
+      grid-column: 2;
+    }
+
+    /* ========== TEAM ========== */
+    .team-section {
+      background: var(--cream);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .team-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      transition: transform var(--transition), box-shadow var(--transition);
+      animation: cardReveal 0.7s ease-out both;
+    }
+
+    .team-card:nth-child(1) { animation-delay: 0s; }
+    .team-card:nth-child(2) { animation-delay: 0.15s; }
+    .team-card:nth-child(3) { animation-delay: 0.3s; }
+
+    .team-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .team-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: var(--cream-dark);
+      margin: 40px auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: var(--gold);
+      border: 3px solid var(--gold);
+      transition: background var(--transition), border-color var(--transition);
+    }
+
+    .team-card:hover .team-avatar {
+      background: var(--gold);
+      color: var(--charcoal);
+    }
+
+    .team-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+    }
+
+    .team-role {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gold-dark);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .team-bio {
+      color: var(--gray);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      padding: 0 24px 36px;
+    }
+
+    /* ========== ACHIEVEMENTS MARQUEE ========== */
+    .achievements-section {
+      background: var(--charcoal);
+      overflow: hidden;
+      padding: 60px 24px;
+    }
+
+    .achievements-inner {
+      max-width: 1200px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+
+    .achievements-inner .section-title {
+      color: var(--white);
+    }
+
+    .achievement-marquee-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .achievement-track {
+      display: flex;
+      gap: 40px;
+      width: max-content;
+      animation: marqueeScroll 25s linear infinite;
+    }
+
+    .achievement-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marqueeScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .achievement-badge {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(201, 168, 76, 0.25);
+      border-radius: 50px;
+      padding: 14px 32px;
+      white-space: nowrap;
+      transition: background var(--transition), border-color var(--transition);
+    }
+
+    .achievement-badge:hover {
+      background: rgba(201, 168, 76, 0.12);
+      border-color: var(--gold);
+    }
+
+    .achievement-icon {
+      font-size: 1.3rem;
+    }
+
+    .achievement-badge span:last-child {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      color: var(--cream);
+      letter-spacing: 0.5px;
+    }
+
+    /* ========== CTA BANNER ========== */
+    .cta-banner {
+      background: var(--gold);
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .cta-banner .section-title {
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+
+    .cta-banner .section-desc {
+      color: rgba(26, 26, 46, 0.75);
+      max-width: 520px;
+      margin: 0 auto 32px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 36px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all var(--transition);
+      border: none;
+      letter-spacing: 0.5px;
+    }
+
+    .cta-banner .btn-primary {
+      background: var(--charcoal);
+      color: var(--white);
+      border: 2px solid var(--charcoal);
+    }
+
+    .cta-banner .btn-primary:hover,
+    .cta-banner .btn-primary:focus-visible {
+      background: transparent;
+      color: var(--charcoal);
+      box-shadow: none;
+    }
+
+    /* ========== FOOTER ========== */
+    #site-footer {
+      background: var(--charcoal);
+      color: var(--cream);
+      padding: 60px 24px 0;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .footer-col h3 {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .footer-col p,
+    .footer-col a {
+      color: rgba(245, 240, 232, 0.75);
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+
+    .footer-col ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-col ul li a {
+      color: rgba(245, 240, 232, 0.75);
+      transition: color var(--transition);
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--gold);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(245, 240, 232, 0.3);
+      border-radius: 50%;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--cream);
+      cursor: default;
+      transition: all var(--transition);
+    }
+
+    .social-icon:hover {
+      background: var(--gold);
+      color: var(--charcoal);
+      border-color: var(--gold);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 24px 0;
+      margin-top: 48px;
+      border-top: 1px solid rgba(245, 240, 232, 0.1);
+    }
+
+    .footer-bottom p {
+      font-size: 0.8rem;
+      color: rgba(245, 240, 232, 0.5);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 900px) {
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: var(--charcoal);
+        padding: 20px 24px;
+        gap: 16px;
+        display: none;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .story-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .story-image img {
+        height: 280px;
+      }
+
+      .mission-cards {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .venue-bento {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+
+      .venue-item-tall {
+        grid-row: auto;
+        min-height: 300px;
+      }
+
+      .venue-item-wide {
+        grid-column: auto;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .social-icons {
+        justify-content: center;
+      }
+
+      .section {
+        padding: 60px 20px;
+      }
+    }
+
+    @media (min-width: 901px) and (max-width: 1199px) {
+      .mission-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- === SHARED HEADER === -->
+<header id="site-header">
+  <div class="header-inner">
+    <a href="home.html" class="logo">Jubilee Retreat<span class="logo-accent">&amp; Conference Centre</span></a>
+    <nav id="main-nav">
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="room.html">Rooms</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- === HERO === -->
+<section class="page-hero" aria-label="About hero">
+  <div class="page-hero-bg" role="img" aria-label="Jubilee Retreat front view"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <h1 class="page-hero-title">Our Story</h1>
+    <div class="gold-divider"></div>
+  </div>
+</section>
+
+<!-- === OUR STORY === -->
+<section class="section story-section" aria-label="Our Story">
+  <div class="section-inner">
+    <div class="story-grid">
+      <div class="story-image">
+        <img src="images/interior_1.jpg" alt="Elegant interior of Jubilee Retreat" loading="lazy">
+      </div>
+      <div class="story-content">
+        <span class="section-label">Our Story</span>
+        <h2 class="section-title">A Legacy of Warmth &amp; Distinction</h2>
+        <p class="story-text">
+          Nestled in the heart of Effurun, Jubilee Retreat and Conference Centre was born from a vision to create a sanctuary where modern luxury meets the soulful warmth of Nigerian hospitality. Every corner of our estate tells a story — of heritage, of thoughtful design, and of an unwavering commitment to excellence.
+        </p>
+        <p class="story-text">
+          From the moment you step through our doors, you are welcomed into a space where tradition and contemporary elegance converge. Our beautifully appointed interiors, lush surroundings, and meticulous attention to detail reflect the rich cultural tapestry of the Niger Delta while offering world-class comfort.
+        </p>
+        <p class="story-signoff">— Where every guest becomes family.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === MISSION & VALUES === -->
+<section class="section mission-section" aria-label="Mission and Values">
+  <div class="section-inner">
+    <span class="section-label">Our Ethos</span>
+    <h2 class="section-title">Mission &amp; Values</h2>
+    <p class="section-desc">
+      Guided by a passion for hospitality, we strive to create memorable experiences rooted in integrity and warmth.
+    </p>
+    <div class="mission-cards">
+      <div class="mission-card">
+        <div class="mission-icon">&#9733;</div>
+        <h3>Our Mission</h3>
+        <p>To provide an unparalleled retreat experience that harmonises luxury, comfort, and authentic Nigerian hospitality — creating lasting memories for every guest who walks through our doors.</p>
+      </div>
+      <div class="mission-card">
+        <div class="mission-icon">&#9733;</div>
+        <h3>Our Vision</h3>
+        <p>To be the premier destination for leisure and business travel in the Delta region, setting the standard for excellence in hospitality, event hosting, and guest satisfaction.</p>
+      </div>
+      <div class="mission-card">
+        <div class="mission-icon">&#9733;</div>
+        <h3>Our Values</h3>
+        <p>Integrity, excellence, warmth, and community. We believe in serving with heart, upholding the highest standards, and celebrating the rich cultural heritage of our homeland.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === THE VENUE === -->
+<section class="section venue-section" aria-label="The Venue">
+  <div class="section-inner">
+    <span class="section-label">Explore</span>
+    <h2 class="section-title">The Venue</h2>
+    <p class="section-desc">
+      Discover the spaces that make Jubilee Retreat a destination unto itself — from serene pools to elegant dining halls.
+    </p>
+    <div class="venue-bento">
+      <div class="venue-item venue-item-tall">
+        <img src="images/pool_1.jpg" alt="Swimming pool surrounded by lush greenery" loading="lazy">
+        <div class="venue-item-overlay"></div>
+        <div class="venue-item-content">
+          <h3>The Pool &amp; Gardens</h3>
+          <p>Our crystal-clear pool is set amidst manicured tropical gardens, offering a serene escape for relaxation and leisure under the Delta sun.</p>
+        </div>
+      </div>
+      <div class="venue-item venue-item-wide">
+        <img src="images/restaurant_1.jpg" alt="Fine dining restaurant interior" loading="lazy">
+        <div class="venue-item-overlay"></div>
+        <div class="venue-item-content">
+          <h3>The Restaurant</h3>
+          <p>An exquisite dining experience featuring locally inspired cuisine and international classics, prepared with the finest ingredients.</p>
+        </div>
+      </div>
+      <div class="venue-item venue-item-wide">
+        <img src="images/interior_2.jpg" alt="Event and conference hall interior" loading="lazy">
+        <div class="venue-item-overlay"></div>
+        <div class="venue-item-content">
+          <h3>Event Spaces</h3>
+          <p>Versatile, elegantly appointed halls designed to host everything from intimate gatherings to grand conferences and celebrations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === TEAM === -->
+<section class="section team-section" aria-label="Meet the Team">
+  <div class="section-inner">
+    <span class="section-label">Leadership</span>
+    <h2 class="section-title">Meet the Team</h2>
+    <p class="section-desc">
+      Behind every great stay is a dedicated team committed to making your experience unforgettable.
+    </p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">&#9994;</div>
+        <h3>Adeola</h3>
+        <p class="team-role">General Manager</p>
+        <p class="team-bio">With over a decade of hospitality leadership, Adeola ensures every guest experience is flawless from check-in to check-out.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">&#127860;</div>
+        <h3>Chioma</h3>
+        <p class="team-role">Events Director</p>
+        <p class="team-bio">Chioma brings creativity and precision to every event, transforming visions into unforgettable gatherings large and small.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">&#127858;</div>
+        <h3>Emeka</h3>
+        <p class="team-role">Head Chef</p>
+        <p class="team-bio">Emeka crafts culinary masterpieces that celebrate local flavours with international flair, delighting every palate that visits our table.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === ACHIEVEMENTS MARQUEE === -->
+<section class="achievements-section" aria-label="Achievements">
+  <div class="achievements-inner">
+    <span class="section-label">Recognition</span>
+    <h2 class="section-title">Our Achievements</h2>
+  </div>
+  <div class="achievement-marquee-wrapper">
+    <div class="achievement-track">
+      <div class="achievement-badge">
+        <span class="achievement-icon">&#127942;</span>
+        <span>Award-Winning Venue</span>
+      </div>
+      <div class="achievement-badge">
+        <span class="achievement-icon">&#127758;</span>
+        <span>Eco-Friendly</span>
+      </div>
+      <div class="achievement-badge">
+        <span class="achievement-icon">&#11088;</span>
+        <span>5-Star Rated</span>
+      </div>
+      <div class="achievement-badge">
+        <span class="achievement-icon">&#128197;</span>
+        <span>Est. 2005</span>
+      </div>
+      <div class="achievement-badge">
+        <span class="achievement-icon">&#127881;</span>
+        <span>Top Hospitality Brand</span>
+      </div>
+      <div class="achievement-badge">
+        <span class="achievement-icon">&#129309;</span>
+        <span>Community Choice</span>
+      </div>
+      <!-- Duplicate for seamless loop -->
+      <div class="achievement-badge">
+        <span class="achievement-icon">&#127942;</span>
+        <span>Award-Winning Venue</span>
+      </div>
+      <div class="achievement-badge">
+        <span class="achievement-icon">&#127758;</span>
+        <span>Eco-Friendly</span>
+      </div>
+      <div class="achievement-badge">
+        <span class="achievement-icon">&#11088;</span>
+        <span>5-Star Rated</span>
+      </div>
+      <div class="achievement-badge">
+        <span class="achievement-icon">&#128197;</span>
+        <span>Est. 2005</span>
+      </div>
+      <div class="achievement-badge">
+        <span class="achievement-icon">&#127881;</span>
+        <span>Top Hospitality Brand</span>
+      </div>
+      <div class="achievement-badge">
+        <span class="achievement-icon">&#129309;</span>
+        <span>Community Choice</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === CTA BANNER === -->
+<section class="cta-banner" aria-label="Call to action">
+  <div class="section-inner">
+    <h2 class="section-title">Visit Us Today</h2>
+    <p class="section-desc">Experience the warmth, elegance, and world-class hospitality of Jubilee Retreat. We look forward to welcoming you.</p>
+    <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+  </div>
+</section>
+
+<!-- === SHARED FOOTER === -->
+<footer id="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h3>Jubilee Retreat &amp; Conference Centre</h3>
+      <p>5 Enerhen Rd, Effurun, Wado City 330102, Delta</p>
+      <p>Phone: <a href="tel:+2348103150133">0810 315 0133</a></p>
+    </div>
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="room.html">Rooms</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Find Us</h3>
+      <a href="https://maps.google.com/?q=5.5473078684582395,5.782021836735339" target="_blank" rel="noopener noreferrer">View on Google Maps</a>
+      <div class="social-icons">
+        <span class="social-icon" aria-label="Facebook">FB</span>
+        <span class="social-icon" aria-label="Instagram">IG</span>
+        <span class="social-icon" aria-label="Twitter">X</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Jubilee Retreat &amp; Conference Centre. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var toggle = document.querySelector('.nav-toggle');
+    var navLinks = document.querySelector('.nav-links');
+    if (toggle && navLinks) {
+      toggle.addEventListener('click', function() {
+        navLinks.classList.toggle('open');
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>

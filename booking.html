@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jubilee Retreat and Conference Centre – Booking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --charcoal: #1a1a2e;
+      --gold: #c9a84c;
+      --gold-light: #dbbf6e;
+      --gold-dark: #a88830;
+      --cream: #f5f0e8;
+      --cream-dark: #e8e0d0;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --gray-light: #9ca3af;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+      --shadow-lg: 0 10px 40px rgba(0,0,0,0.18);
+      --radius: 12px;
+      --radius-lg: 20px;
+      --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      color: var(--charcoal);
+      background: var(--cream);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ========== HEADER ========== */
+    #site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(26, 26, 46, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+      transition: background var(--transition);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.5px;
+    }
+
+    .logo-accent {
+      font-weight: 400;
+      font-size: 0.75rem;
+      color: var(--cream);
+      display: block;
+      line-height: 1;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--cream);
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--cream);
+      letter-spacing: 0.5px;
+      position: relative;
+      padding-bottom: 4px;
+      transition: color var(--transition);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--gold);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      width: 100%;
+    }
+
+    /* ========== PAGE HERO ========== */
+    .page-hero {
+      position: relative;
+      min-height: 40vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .page-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: var(--charcoal);
+    }
+
+    .page-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 20px,
+          rgba(201, 168, 76, 0.06) 20px,
+          rgba(201, 168, 76, 0.06) 21px
+        ),
+        linear-gradient(135deg, rgba(26,26,46,0.85) 0%, rgba(26,26,46,0.6) 100%);
+    }
+
+    .page-hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 24px;
+      animation: heroFadeIn 1.2s ease-out;
+    }
+
+    @keyframes heroFadeIn {
+      0%   { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .page-hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .page-hero-sub {
+      font-family: var(--font-heading);
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      font-style: italic;
+      color: var(--gold);
+      margin-bottom: 16px;
+      opacity: 0.95;
+    }
+
+    .gold-divider {
+      width: 80px;
+      height: 3px;
+      background: var(--gold);
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+
+    /* ========== SECTION SHARED ========== */
+    .section {
+      padding: 100px 24px;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      color: var(--gray);
+      max-width: 640px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* ========== BOOKING SECTION ========== */
+    .booking-section {
+      background: var(--cream);
+    }
+
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 40px;
+      align-items: start;
+      margin-top: 48px;
+    }
+
+    .booking-form-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 48px 44px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+      letter-spacing: 0.3px;
+    }
+
+    .form-group label .required {
+      color: var(--gold-dark);
+      margin-left: 2px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--charcoal);
+      background: var(--cream);
+      border: 2px solid transparent;
+      border-radius: var(--radius);
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.2);
+      background: var(--white);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--gray-light);
+    }
+
+    .form-group textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .form-group select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231a1a2e' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+
+    .submit-row {
+      margin-top: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 36px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all var(--transition);
+      border: none;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--charcoal);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(201, 168, 76, 0.35);
+    }
+
+    .btn-block {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* ========== BOOKING SUMMARY ========== */
+    .booking-summary {
+      background: var(--charcoal);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      color: var(--cream);
+      position: sticky;
+      top: 100px;
+    }
+
+    .booking-summary h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+    }
+
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      font-size: 0.9rem;
+      border-bottom: 1px solid rgba(245, 240, 232, 0.06);
+    }
+
+    .summary-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .summary-label {
+      color: rgba(245, 240, 232, 0.6);
+    }
+
+    .summary-value {
+      color: var(--cream);
+      font-weight: 500;
+      text-align: right;
+    }
+
+    .summary-total {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 2px solid var(--gold);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .summary-total .summary-label {
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .summary-total .summary-value {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .summary-placeholder {
+      color: rgba(245, 240, 232, 0.35);
+      font-style: italic;
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    /* ========== WHY BOOK DIRECT ========== */
+    .why-book-section {
+      background: var(--white);
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .bento-card {
+      background: var(--cream);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bento-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--gold);
+      border-radius: 0 2px 2px 0;
+    }
+
+    .bento-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .bento-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      background: var(--gold);
+      color: var(--charcoal);
+      border-radius: 50%;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .bento-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+
+    .bento-card p {
+      color: var(--gray);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    /* ========== POLICIES ========== */
+    .policies-section {
+      background: var(--cream);
+    }
+
+    .policies-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .policy-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .policy-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .policy-card .policy-icon {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .policy-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+
+    .policy-card p {
+      color: var(--gray);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    /* ========== TOAST / MODAL ========== */
+    .toast-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 26, 46, 0.6);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .toast-overlay.active {
+      display: flex;
+    }
+
+    .toast-modal {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 48px 40px;
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      animation: toastIn 0.4s ease-out;
+    }
+
+    @keyframes toastIn {
+      0%   { opacity: 0; transform: scale(0.9) translateY(20px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .toast-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--gold);
+      color: var(--charcoal);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .toast-modal h2 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+
+    .toast-modal p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .toast-modal .btn {
+      min-width: 160px;
+    }
+
+    /* ========== FOOTER ========== */
+    #site-footer {
+      background: var(--charcoal);
+      color: var(--cream);
+      padding: 60px 24px 0;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .footer-col h3 {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .footer-col p,
+    .footer-col a {
+      color: rgba(245, 240, 232, 0.75);
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+
+    .footer-col ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-col ul li a {
+      color: rgba(245, 240, 232, 0.75);
+      transition: color var(--transition);
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--gold);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(245, 240, 232, 0.3);
+      border-radius: 50%;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--cream);
+      cursor: default;
+      transition: all var(--transition);
+    }
+
+    .social-icon:hover {
+      background: var(--gold);
+      color: var(--charcoal);
+      border-color: var(--gold);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 24px 0;
+      margin-top: 48px;
+      border-top: 1px solid rgba(245, 240, 232, 0.1);
+    }
+
+    .footer-bottom p {
+      font-size: 0.8rem;
+      color: rgba(245, 240, 232, 0.5);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 900px) {
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: var(--charcoal);
+        padding: 20px 24px;
+        gap: 16px;
+        display: none;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .booking-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-summary {
+        position: static;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .policies-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .social-icons {
+        justify-content: center;
+      }
+
+      .section {
+        padding: 60px 20px;
+      }
+
+      .booking-form-card {
+        padding: 32px 24px;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .policies-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- === SHARED HEADER === -->
+<header id="site-header">
+  <div class="header-inner">
+    <a href="home.html" class="logo">Jubilee Retreat<span class="logo-accent">&amp; Conference Centre</span></a>
+    <nav id="main-nav">
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="room.html">Rooms</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- === HERO === -->
+<section class="page-hero" aria-label="Booking hero">
+  <div class="page-hero-bg" role="img" aria-label="Reserve your stay at Jubilee Retreat"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <h1 class="page-hero-title">Reserve Your Stay</h1>
+    <p class="page-hero-sub">Book your perfect escape at Jubilee Retreat</p>
+    <div class="gold-divider"></div>
+  </div>
+</section>
+
+<!-- === BOOKING FORM + SUMMARY === -->
+<section class="section booking-section" aria-label="Booking form">
+  <div class="section-inner">
+    <span class="section-label">Reservations</span>
+    <h2 class="section-title">Complete Your Booking</h2>
+    <p class="section-desc">
+      Fill in the details below and we'll take care of the rest.
+    </p>
+    <div class="booking-layout">
+      <div class="booking-form-card">
+        <form id="booking-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullname">Full Name <span class="required">*</span></label>
+              <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address <span class="required">*</span></label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number <span class="required">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="0800 000 0000" required>
+            </div>
+            <div class="form-group">
+              <label for="guests">Number of Guests <span class="required">*</span></label>
+              <input type="number" id="guests" name="guests" min="1" max="10" placeholder="1" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="checkin">Check-in Date <span class="required">*</span></label>
+              <input type="date" id="checkin" name="checkin" required>
+            </div>
+            <div class="form-group">
+              <label for="checkout">Check-out Date <span class="required">*</span></label>
+              <input type="date" id="checkout" name="checkout" required>
+            </div>
+          </div>
+          <div class="form-group full">
+            <label for="roomtype">Room Type <span class="required">*</span></label>
+            <select id="roomtype" name="roomtype" required>
+              <option value="" disabled selected>Select a room type</option>
+              <option value="standard">Standard Room — ₦45,000/night</option>
+              <option value="deluxe">Deluxe Room — ₦75,000/night</option>
+              <option value="executive">Executive Suite — ₦120,000/night</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label for="requests">Special Requests</label>
+            <textarea id="requests" name="requests" placeholder="Any special requests or preferences..."></textarea>
+          </div>
+          <div class="form-group full submit-row">
+            <button type="submit" class="btn btn-primary btn-block">Confirm Booking</button>
+          </div>
+        </form>
+      </div>
+
+      <aside class="booking-summary" aria-label="Booking summary">
+        <h3>Booking Summary</h3>
+        <div class="summary-item">
+          <span class="summary-label">Room Type</span>
+          <span class="summary-value" id="summary-room">—</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Check-in</span>
+          <span class="summary-value" id="summary-checkin">—</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Check-out</span>
+          <span class="summary-value" id="summary-checkout">—</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Nights</span>
+          <span class="summary-value" id="summary-nights">—</span>
+        </div>
+        <div class="summary-item">
+          <span class="summary-label">Guests</span>
+          <span class="summary-value" id="summary-guests">—</span>
+        </div>
+        <div class="summary-total">
+          <span class="summary-label">Total Estimate</span>
+          <span class="summary-value" id="summary-total">₦0</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- === WHY BOOK DIRECT (BENTO) === -->
+<section class="section why-book-section" aria-label="Why book direct">
+  <div class="section-inner">
+    <span class="section-label">Book Direct</span>
+    <h2 class="section-title">Why Book Direct?</h2>
+    <p class="section-desc">
+      Enjoy exclusive benefits when you book directly with Jubilee Retreat.
+    </p>
+    <div class="bento-grid">
+      <div class="bento-card">
+        <div class="bento-icon">★</div>
+        <h3>Best Rate Guarantee</h3>
+        <p>We guarantee the lowest available rates when you book directly through our website. Found a better price elsewhere? We'll match it.</p>
+      </div>
+      <div class="bento-card">
+        <div class="bento-icon">✕</div>
+        <h3>Free Cancellation</h3>
+        <p>Plans change. Cancel up to 48 hours before check-in for a full refund — no questions asked.</p>
+      </div>
+      <div class="bento-card">
+        <div class="bento-icon">☕</div>
+        <h3>Complimentary Breakfast</h3>
+        <p>Every direct booking includes a complimentary continental breakfast for each guest per night of your stay.</p>
+      </div>
+      <div class="bento-card">
+        <div class="bento-icon">♛</div>
+        <h3>Loyalty Rewards</h3>
+        <p>Earn points with every direct booking and redeem them for free nights, upgrades, and exclusive perks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === POLICIES === -->
+<section class="section policies-section" aria-label="Policies">
+  <div class="section-inner">
+    <span class="section-label">Policies</span>
+    <h2 class="section-title">Hotel Policies</h2>
+    <p class="section-desc">
+      Please review our policies before booking your stay.
+    </p>
+    <div class="policies-grid">
+      <div class="policy-card">
+        <span class="policy-icon">🕑</span>
+        <h3>Check-in</h3>
+        <p>From 2:00 PM. Early check-in may be available upon request subject to availability.</p>
+      </div>
+      <div class="policy-card">
+        <span class="policy-icon">🕐</span>
+        <h3>Check-out</h3>
+        <p>By 12:00 PM noon. Late check-out can be arranged for an additional fee.</p>
+      </div>
+      <div class="policy-card">
+        <span class="policy-icon">📋</span>
+        <h3>Cancellation</h3>
+        <p>Free cancellation up to 48 hours before check-in. Late cancellations may incur a one-night charge.</p>
+      </div>
+      <div class="policy-card">
+        <span class="policy-icon">👶</span>
+        <h3>Child Policy</h3>
+        <p>Children under 12 stay free when sharing a room with parents. Extra beds are available on request.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === SHARED FOOTER === -->
+<footer id="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h3>Jubilee Retreat &amp; Conference Centre</h3>
+      <p>5 Enerhen Rd, Effurun, Wado City 330102, Delta</p>
+      <p>Phone: <a href="tel:+2348103150133">0810 315 0133</a></p>
+    </div>
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="room.html">Rooms</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Find Us</h3>
+      <a href="https://maps.google.com/?q=5.5473078684582395,5.782021836735339" target="_blank" rel="noopener noreferrer">View on Google Maps</a>
+      <div class="social-icons">
+        <span class="social-icon" aria-label="Facebook">FB</span>
+        <span class="social-icon" aria-label="Instagram">IG</span>
+        <span class="social-icon" aria-label="Twitter">X</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Jubilee Retreat &amp; Conference Centre. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- === TOAST OVERLAY === -->
+<div class="toast-overlay" id="toast-overlay">
+  <div class="toast-modal" role="dialog" aria-modal="true" aria-labelledby="toast-title">
+    <div class="toast-icon">✓</div>
+    <h2 id="toast-title">Booking Confirmed!</h2>
+    <p>Thank you for your reservation. A confirmation email will be sent to your inbox shortly. We look forward to welcoming you to Jubilee Retreat.</p>
+    <button class="btn btn-primary" id="toast-close">Great, Thanks!</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  // Nav toggle
+  var toggle = document.querySelector('.nav-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  if (toggle && navLinks) {
+    toggle.addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+    });
+  }
+
+  // Room price map
+  var roomPrices = {
+    'standard': 45000,
+    'deluxe': 75000,
+    'executive': 120000
+  };
+
+  var roomLabels = {
+    'standard': 'Standard Room',
+    'deluxe': 'Deluxe Room',
+    'executive': 'Executive Suite'
+  };
+
+  // Form elements
+  var form = document.getElementById('booking-form');
+  var roomSelect = document.getElementById('roomtype');
+  var checkinInput = document.getElementById('checkin');
+  var checkoutInput = document.getElementById('checkout');
+  var guestsInput = document.getElementById('guests');
+
+  // Summary elements
+  var summaryRoom = document.getElementById('summary-room');
+  var summaryCheckin = document.getElementById('summary-checkin');
+  var summaryCheckout = document.getElementById('summary-checkout');
+  var summaryNights = document.getElementById('summary-nights');
+  var summaryGuests = document.getElementById('summary-guests');
+  var summaryTotal = document.getElementById('summary-total');
+
+  // Toast elements
+  var toastOverlay = document.getElementById('toast-overlay');
+  var toastClose = document.getElementById('toast-close');
+
+  function formatDate(dateStr) {
+    if (!dateStr) return '—';
+    var parts = dateStr.split('-');
+    return parts[2] + '/' + parts[1] + '/' + parts[0];
+  }
+
+  function formatCurrency(amount) {
+    return '₦' + amount.toLocaleString('en-US');
+  }
+
+  function updateSummary() {
+    var roomVal = roomSelect.value;
+    var checkinVal = checkinInput.value;
+    var checkoutVal = checkoutInput.value;
+    var guestsVal = guestsInput.value;
+
+    summaryRoom.textContent = roomVal ? roomLabels[roomVal] : '—';
+    summaryCheckin.textContent = formatDate(checkinVal);
+    summaryCheckout.textContent = formatDate(checkoutVal);
+    summaryGuests.textContent = guestsVal || '—';
+
+    // Calculate nights
+    if (checkinVal && checkoutVal) {
+      var d1 = new Date(checkinVal + 'T12:00:00');
+      var d2 = new Date(checkoutVal + 'T12:00:00');
+      var diffTime = d2.getTime() - d1.getTime();
+      var diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+      if (diffDays > 0) {
+        summaryNights.textContent = diffDays + (diffDays === 1 ? ' night' : ' nights');
+      } else {
+        summaryNights.textContent = '—';
+      }
+    } else {
+      summaryNights.textContent = '—';
+    }
+
+    // Calculate total
+    if (roomVal && checkinVal && checkoutVal) {
+      var d1 = new Date(checkinVal + 'T12:00:00');
+      var d2 = new Date(checkoutVal + 'T12:00:00');
+      var diffTime = d2.getTime() - d1.getTime();
+      var diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+      if (diffDays > 0) {
+        var price = roomPrices[roomVal] * diffDays;
+        summaryTotal.textContent = formatCurrency(price);
+      } else {
+        summaryTotal.textContent = '₦0';
+      }
+    } else if (roomVal) {
+      summaryTotal.textContent = formatCurrency(roomPrices[roomVal]);
+    } else {
+      summaryTotal.textContent = '₦0';
+    }
+  }
+
+  // Listen for changes
+  roomSelect.addEventListener('change', updateSummary);
+  checkinInput.addEventListener('change', updateSummary);
+  checkoutInput.addEventListener('change', updateSummary);
+  guestsInput.addEventListener('input', updateSummary);
+
+  // Initial update
+  updateSummary();
+
+  // Form validation + submit
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var valid = true;
+    var fields = form.querySelectorAll('input, select, textarea');
+    for (var i = 0; i < fields.length; i++) {
+      var field = fields[i];
+      if (field.hasAttribute('required') && !field.value.trim()) {
+        valid = false;
+        field.style.borderColor = '#e74c3c';
+        field.addEventListener('input', function handler() {
+          this.style.borderColor = '';
+          this.removeEventListener('input', handler);
+        }, { once: true });
+      }
+    }
+
+    // Check checkout > checkin
+    if (valid && checkinInput.value && checkoutInput.value) {
+      var d1 = new Date(checkinInput.value + 'T12:00:00');
+      var d2 = new Date(checkoutInput.value + 'T12:00:00');
+      if (d2 <= d1) {
+        valid = false;
+        checkoutInput.style.borderColor = '#e74c3c';
+        checkoutInput.addEventListener('input', function handler() {
+          this.style.borderColor = '';
+          this.removeEventListener('input', handler);
+        }, { once: true });
+      }
+    }
+
+    if (!valid) {
+      return;
+    }
+
+    // Show success toast
+    toastOverlay.classList.add('active');
+  });
+
+  // Close toast
+  toastClose.addEventListener('click', function() {
+    toastOverlay.classList.remove('active');
+  });
+
+  toastOverlay.addEventListener('click', function(e) {
+    if (e.target === toastOverlay) {
+      toastOverlay.classList.remove('active');
+    }
+  });
+
+  // Set min date on date inputs to today
+  var today = new Date();
+  var yyyy = today.getFullYear();
+  var mm = String(today.getMonth() + 1).padStart(2, '0');
+  var dd = String(today.getDate()).padStart(2, '0');
+  var todayStr = yyyy + '-' + mm + '-' + dd;
+  checkinInput.setAttribute('min', todayStr);
+  checkoutInput.setAttribute('min', todayStr);
+})();
+</script>
+
+</body>
+</html>
